@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Section from "./Section";
+import Statistics from "./Statistics";
 
 export default class FeedbackWidget extends Component {
     state = {
@@ -21,8 +22,9 @@ export default class FeedbackWidget extends Component {
         const { good, neutral, bad } = this.state;
         return (
             <div>
-                            <Section>
-           </Section>
+                <Section>
+
+                </Section>
                 <div>
                     <h2>Please leave feedback</h2>
                     <button onClick={() => this.leaveFeedback("good")}>Good</button>
@@ -30,14 +32,7 @@ export default class FeedbackWidget extends Component {
                     <button onClick={() => this.leaveFeedback("bad")}>Bad</button>
                 </div>
                 <div>
-                    <h2>Statistics</h2>
-                    <ul>
-                        <li>Good: {good}</li>
-                        <li>Neutral: {neutral}</li>
-                        <li>Bad: {bad}</li>
-                        {/* <li>Total:</li>
-                        <li>Positive feedback:</li> */}
-                    </ul>
+                    <Statistics good={} neutral={} bad={} total={} positivePercentage={} />
                 </div>
             </div>
         )
