@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Section from "./Section";
 
 export default class FeedbackWidget extends Component {
     state = {
@@ -20,6 +21,8 @@ export default class FeedbackWidget extends Component {
         const { good, neutral, bad } = this.state;
         return (
             <div>
+                            <Section>
+           </Section>
                 <div>
                     <h2>Please leave feedback</h2>
                     <button onClick={() => this.leaveFeedback("good")}>Good</button>
