@@ -6,15 +6,25 @@ export default class FeedbackWidget extends Component {
      neutral: 0,
      bad: 0
     }
+
+    leaveFeedback = (propertyName) => {
+        this.setState((prevState) => {
+            const value = prevState[propertyName];
+            return {
+                [propertyName]: value + 1
+            }
+      })  
+    }
+
     render() {
         const { good, neutral, bad } = this.state;
         return (
             <div>
                 <div>
                     <h2>Please leave feedback</h2>
-                    <button>Good</button>
-                    <button>Neutral</button>
-                    <button type="submit">Bad</button>
+                    <button onClick={() => this.leaveFeedback("good")}>Good</button>
+                    <button onClick={() => this.leaveFeedback("neutral")}>Neutral</button>
+                    <button onClick={() => this.leaveFeedback("bad")}>Bad</button>
                 </div>
                 <div>
                     <h2>Statistics</h2>
