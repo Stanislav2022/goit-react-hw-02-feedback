@@ -22,19 +22,19 @@ export default class FeedbackWidget extends Component {
         const { good, neutral, bad } = this.state;
         return (
             <div>
-                <Section>
-
-                </Section>
                 <div>
                     <h2>Please leave feedback</h2>
                     <button onClick={() => this.leaveFeedback("good")}>Good</button>
                     <button onClick={() => this.leaveFeedback("neutral")}>Neutral</button>
                     <button onClick={() => this.leaveFeedback("bad")}>Bad</button>
                 </div>
-                <div>
-                    <Statistics good={} neutral={} bad={} total={} positivePercentage={} />
-                </div>
+                <Section>
+                    <Statistics good={good} neutral={neutral} bad={bad}/>
+                </Section>
+                
+                
             </div>
         )
     }
+                
 }

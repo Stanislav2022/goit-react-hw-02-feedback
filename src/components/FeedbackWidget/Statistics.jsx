@@ -8,8 +8,6 @@ export default function Statistics({good, neutral, bad}) {
             <li>Good: {good}</li>
             <li>Neutral: {neutral}</li>
             <li>Bad: {bad}</li>
-            {/* <li>Total:</li>
-            <li>Positive feedback:</li> */}
         </ul>
     </div>
   )
