@@ -2,7 +2,7 @@ import { Component } from "react";
 import Section from "./Section";
 import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
-
+import Notification from "./Notification";
 
 export default class FeedbackWidget extends Component {
     state = {
@@ -10,6 +10,20 @@ export default class FeedbackWidget extends Component {
      neutral: 0,
      bad: 0
     }
+
+    countTotal() {
+        const { good, neutral, bad } = this.state
+        return good + neutral + bad;
+    }
+    countPositivePercentage(propertyName) {
+        const total = this.countTotal();
+        if (!total) {
+            return 0;
+        }
+        const value = this.state[propertyName];
+        const result = (value / total) * 100;
+            return Number(result.toFixed(0))
+     }
 
     onLeaveFeedback = (propertyName) => {
         this.setState((prevState) => {
@@ -19,16 +33,19 @@ export default class FeedbackWidget extends Component {
             }
       })  
     }
-
+   
     render() {
         const { good, neutral, bad } = this.state;
-        return (
+        const total = this.countTotal()
+        const positivePercentage = this.countPositivePercentage('good')
+        return (    
             <div>
                 <Section>
                     <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
                 </Section>
                 <Section>
-                    <Statistics good={good} neutral={neutral} bad={bad}/>
+                    {!total ? <Notification /> :
+                        <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />}
                 </Section>
                 
                 
