@@ -1,11 +1,12 @@
 .section{
     display: flex;
+    flex-direction: column;
     padding: 30px;
 }
 
 
 .title {
-color: blue;
+color: #000;
 }
 button:hover{
     cursor: pointer;

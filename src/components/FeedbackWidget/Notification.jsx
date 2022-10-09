@@ -1,10 +1,10 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Notification() {
+export default function Notification({text}) {
  return (
-    <div>
-        <h2>Statistics</h2>
-        <p>There is no feedback</p>
-    </div>
+        <p>{text}</p>
   )
 }
+Notification.propTypes = {
+  text: PropTypes.string,
+ };

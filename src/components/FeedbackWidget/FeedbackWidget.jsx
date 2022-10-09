@@ -40,15 +40,13 @@ export default class FeedbackWidget extends Component {
         const positivePercentage = this.countPositivePercentage('good')
         return (    
             <div>
-                <Section>
-                    <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
+                <Section title="Please leave feedback">
+                    <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options={Object.keys(this.state)}/>
                 </Section>
-                <Section>
-                    {!total ? <Notification /> :
+                <Section title="Statistics">
+                    {!total ? <Notification text="There is no feedback" /> :
                         <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />}
                 </Section>
-                
-                
             </div>
         )
     }
